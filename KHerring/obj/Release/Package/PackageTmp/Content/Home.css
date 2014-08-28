@@ -1,0 +1,30 @@
+﻿.SectionDiv {
+	display: inline-block;
+	float: left;
+	border-radius: 15px;
+	border-style: solid;
+	border-width: thin;
+	width: 275px;
+	height: 200px;
+	margin: 20px;
+}
+.LeftFeatured {
+	background-position: center top;
+	background-image: url('SideBus2.png');
+	background-color: #000000;
+	background-size:cover;
+	background-repeat: no-repeat;
+}
+.CenterFeatured {
+	background-image: url('PlayingGuitar2.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-color: #000000;
+	background-position: center top;
+}
+.RightFeatured {
+	background-image: url('Whatup2.png');
+	background-position: center top;
+	background-size: cover;
+	background-color: #000000;
+}

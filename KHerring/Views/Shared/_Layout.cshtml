@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    <link href="~/Content/themes/base/minified/jquery.ui.min.css" type="text/css" rel="stylesheet" />
+    <link href="~/Content/jquery-ui-1.9.0.custom.min.css" type="text/css" rel="stylesheet" />
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    <script type="text/javascript" src="~/Scripts/jquery-ui-1.8.20.min.js"></script>
+    <script type="text/javascript">
+        $(window).ready(function () {
+
+            var imgbkg = $('#imgBackground');
+            $('#imgBackground').one('load', function () {
+                var w = $('#imgBackground').width() - $(window).width();
+                $('#backgroundImage').animate({ opacity: '1.0' }, { duration: 15000, queue: false });
+                $('#imgBackground').animate({ 'margin-left': w * -1 }, { duration: 45000, queue: false });
+                $('#Sun').animate(
+                    { top: '-60%', left: '-90%', opacity: '.80' },
+                    { duration: 10000, queue: true },
+                    function () {
+                        $('#Sun').animate({ top: '60%', left: '-50%', opacity: '.0' }, { duration: 10000, queue: false });
+                        $('#backgroundImage').animate({ opacity: '0.1' }, { duration: 10000, queue: false });
+                    });
+
+            }).each(function ()
+            {
+                if (this.complete) $(this).load();
+            });;
+              $('.btnNav').click(function (e) {
+                  e.preventDefault();
+                  var url = $(this).attr('href');
+                  $("#content").fadeOut(500, function () {
+                      $("#content").html('');
+                      $("#content").load(url);
+                      $("#content").fadeIn(500);
+                  });
+
+              });
+
+              
+          });
+  </script>
+</head>
+<body>
+ 	<img id="Sun" src="~/Content/Sun.png" alt="" />
+	<div id="backgroundImage">
+        <img id="imgBackground" src="~/Content/PDXBackground1.jpg" height="100%" alt="background" />
+	</div>
+    <div id="sideNav">
+       @{
+           Html.RenderAction("GetNavigationLinks");
+       } 
+        
+    </div>
+    <div id="rightNav"  style="z-index: 150; position: absolute; top: 20%; left: 20px;">
+        @{
+            Html.RenderAction("LoadCalendar");
+        }
+    </div>
+    <div id="content">
+
+        @{
+           Html.RenderAction("HomePage");
+       } 
+    </div>
+    @RenderBody()
+    @RenderSection("scripts", required: false)
+</body>
+</html>

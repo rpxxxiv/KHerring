@@ -1,0 +1,74 @@
+﻿.SectionDiv {
+	display: inline-block;
+	float: left;
+	border-radius: 15px;
+	border-style: solid;
+	border-width: thin;
+	width: 275px;
+	height: 200px;
+	margin: 25px;
+}
+.LeftFeatured {
+	background-position: center top;
+	background-image: url('SideBus2.png');
+	background-color: #000000;
+	background-size:cover;
+	background-repeat: no-repeat;
+}
+.CenterFeatured {
+	background-image: url('PlayingGuitar2.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-color: #000000;
+	background-position: center top;
+}
+.RightFeatured {
+	background-image: url('Whatup2.png');
+	background-position: center top;
+	background-size: cover;
+	background-color: #000000;
+}
+.BottomFeatured {
+    clear:both;
+    background-image: url('PDXBackground270.png');
+	background-position: center top;
+	background-color: #000000;
+    width:945px;
+    height:200px;
+    border-radius: 15px;
+	border-style: solid;
+	border-width: thin;    
+    margin:20px;
+    color:green;
+    position:relative;
+    font-size:5.0em;
+}
+#t
+{
+    position:absolute;
+    top:0px;
+    left:20px;
+}
+#r
+{
+    position:absolute;
+    top:45px;
+    left:200px;
+}
+#buttafuoco
+{
+    position:absolute;
+    top:75px;
+    right:30px;
+
+}
+
+.Shadow
+{
+    text-shadow:5px 5px 5px #000000;
+    zoom: 1;
+    /*filter: progid:DXImageTransform.Microsoft.Shadow(color=#000000,direction=45);	*/
+	filter: progid:DXImageTransform.Microsoft.Chroma(Color=#000000)
+	        progid:DXImageTransform.Microsoft.DropShadow(OffX=5, OffY=5, Color=#000000);
+    
+}

@@ -1,0 +1,9 @@
+﻿@model IEnumerable<KHerring.Models.NavigationLink>
+
+<ul id="nav">
+@foreach (var item in Model) {
+    
+    <li>@Html.ActionLink(item.Title, item.View, new { controller = item.ControllerName }, new { @class = "btnNav" })</li>
+}
+</ul>
+

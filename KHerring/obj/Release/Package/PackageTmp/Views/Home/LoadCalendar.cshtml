@@ -1,0 +1,36 @@
+﻿<script type="text/javascript">
+    $(window).ready(
+
+        function () {
+            
+            LoadCalendar();
+            function LoadCalendar() {
+                var events = [];
+                var url = '@Url.Action("GetEvents","Home")'
+                $.getJSON(url, {}, function (data) {
+                    for (var i = 0; i < data.length; i++) {
+                        events.push(new Date(parseInt(data[i].EventDate.substr(6))));
+                    }
+                    $("#datepicker").datepicker({
+                        dateFormat: 'dd/mm/yy',
+                        beforeShowDay: function (data) {
+                            for (var i = 0; i < events.length; i++) {
+                                if (events[i].toDateString() == data.toDateString()) {
+                                    return [true, 'ui-state-highlight'];
+                                }
+                                
+                            }
+                            return [true, ''];
+                        },
+                        showOtherMonths: true,
+                        selectOtherMonths: true
+                    });
+                });
+            }
+
+        });
+
+</script>
+<div id="datepicker"></div>
+
+
